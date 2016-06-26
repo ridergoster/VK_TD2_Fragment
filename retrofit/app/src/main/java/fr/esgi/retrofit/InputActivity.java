@@ -1,0 +1,74 @@
+package fr.esgi.retrofit;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by vincentk on 14/06/2016.
+ */
+public class InputActivity extends AppCompatActivity {
+
+    public static final String GITHUB_NAME = "githubName";
+    @BindView(R.id.github_name)
+    EditText githubName;
+    @BindView(R.id.send_button)
+    Button sendButton;
+
+    public void openMainActivity(String username) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(GITHUB_NAME, username);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_input);
+        ButterKnife.bind(this);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = sharedPref.getString(GITHUB_NAME, "");
+        githubName.setText(username);
+        githubName.setSelection(githubName.getText().length());
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @OnClick(R.id.send_button)
+    public void submit() {
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String username = githubName.getText().toString().isEmpty() ? "ridergoster" : githubName.getText().toString();
+        editor.putString(GITHUB_NAME, username);
+        editor.commit();
+        openMainActivity(username);
+    }
+
+}
