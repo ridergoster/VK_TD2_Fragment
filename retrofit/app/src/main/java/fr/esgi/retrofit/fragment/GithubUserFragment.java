@@ -1,11 +1,8 @@
-package fr.esgi.retrofit;
+package fr.esgi.retrofit.fragment;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +15,11 @@ import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fr.esgi.retrofit.github.GitHubService;
+import fr.esgi.retrofit.github.GithubWebService;
+import fr.esgi.retrofit.activity.InputActivity;
+import fr.esgi.retrofit.R;
+import fr.esgi.retrofit.myclass.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

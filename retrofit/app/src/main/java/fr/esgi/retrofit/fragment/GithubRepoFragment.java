@@ -1,4 +1,4 @@
-package fr.esgi.retrofit;
+package fr.esgi.retrofit.fragment;
 
 /**
  * Created by vincentk on 14/06/2016.
@@ -16,6 +16,12 @@ import android.view.ViewGroup;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fr.esgi.retrofit.github.GitHubService;
+import fr.esgi.retrofit.github.GithubWebService;
+import fr.esgi.retrofit.activity.InputActivity;
+import fr.esgi.retrofit.myclass.MyAdapter;
+import fr.esgi.retrofit.R;
+import fr.esgi.retrofit.myclass.Repo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

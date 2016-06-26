@@ -1,4 +1,4 @@
-package fr.esgi.retrofit;
+package fr.esgi.retrofit.myclass;
 
 import com.google.gson.annotations.SerializedName;
 

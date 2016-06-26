@@ -1,4 +1,4 @@
-package fr.esgi.retrofit;
+package fr.esgi.retrofit.github;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

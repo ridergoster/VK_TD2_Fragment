@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/shadow"
     android:layout_marginBottom="10dp">
-
-    <TextView
-        android:id="@+id/repo_name_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Name: "
-        android:layout_marginTop="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_alignParentTop="true"/>
-
-    <TextView
-        android:id="@+id/repo_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="nom"
-        android:layout_alignBaseline="@+id/repo_name_desc"
-        android:layout_toRightOf="@+id/repo_name_desc"/>
 
     <TextView
         android:id="@+id/repo_id_desc"
@@ -32,36 +13,56 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="Id: "
-        android:layout_alignBaseline="@+id/repo_name_desc"
-        android:layout_toRightOf="@+id/repo_name"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_alignParentTop="true"/>
 
     <TextView
         android:id="@+id/repo_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="ident"
-        android:layout_alignBaseline="@+id/repo_name_desc"
+        android:text="\???"
+        android:layout_alignBaseline="@+id/repo_id_desc"
         android:layout_toRightOf="@+id/repo_id_desc"/>
+
+    <TextView
+        android:id="@+id/repo_name_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Name: "
+        android:layout_below="@+id/repo_id_desc"
+        android:layout_alignStart="@+id/repo_id_desc" />
+
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="\???"
+        android:layout_alignBaseline="@+id/repo_name_desc"
+        android:layout_toRightOf="@+id/repo_name_desc"/>
+
+
 
     <TextView
         android:id="@+id/repo_stars_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        tools:text="Stars: "
+        android:text="Stars: "
         android:layout_below="@+id/repo_name_desc"
-        android:layout_alignStart="@+id/repo_name_desc"
-        />
+        android:layout_alignStart="@+id/repo_name_desc" />
+
     <TextView
         android:id="@+id/repo_stars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="etoil"
+        android:text="\???"
         android:layout_alignBaseline="@+id/repo_stars_desc"
-        android:layout_toRightOf="@+id/repo_name_desc"
+        android:layout_toRightOf="@+id/repo_stars_desc"/>
         />
 
     <TextView
@@ -69,17 +70,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Forks:"
-        android:layout_below="@+id/repo_name_desc"
-        android:layout_alignStart="@+id/repo_id_desc"
+        android:text="Forks: "
+        android:layout_below="@+id/repo_stars_desc"
+        android:layout_alignStart="@+id/repo_stars_desc" />
         />
+
     <TextView
         android:id="@+id/repo_forks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="forki"
-        android:layout_alignBaseline="@+id/repo_stars_desc"
+        android:text="\???"
+        android:layout_alignBaseline="@+id/repo_forks_desc"
         android:layout_toRightOf="@+id/repo_forks_desc"
         />
 
@@ -88,16 +90,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Issues:"
-        android:layout_below="@+id/repo_stars_desc"
-        android:layout_alignStart="@+id/repo_name_desc"
-        />
+        android:text="Issues: "
+        android:layout_below="@+id/repo_forks_desc"
+        android:layout_alignStart="@+id/repo_forks_desc" />
     <TextView
         android:id="@+id/repo_issues"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="blemm"
+        android:text="\???"
         android:layout_alignBaseline="@+id/repo_issues_desc"
         android:layout_toRightOf="@+id/repo_name_desc"
         />
