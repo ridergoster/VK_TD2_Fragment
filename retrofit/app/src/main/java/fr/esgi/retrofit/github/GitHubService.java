@@ -15,13 +15,10 @@ import retrofit2.http.Path;
 public interface GitHubService {
 
     String END_POINT = "https://api.github.com";
-    String TOKEN = "TOKEN_HERE";
 
-    @Headers("Authorization: token "+TOKEN)
     @GET("users/{username}")
     Call<User> getUser(@Path("username") String username);
 
-    @Headers("Authorization: token "+TOKEN)
     @GET("users/{username}/repos")
     Call<List<Repo>> getRepo(@Path("username") String username);
 

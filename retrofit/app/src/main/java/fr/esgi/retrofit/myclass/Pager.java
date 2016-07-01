@@ -29,7 +29,7 @@ public class Pager extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         //Returning the current tabs
-        switch (position) {
+        switch (position) { //Correction ici utilise des newInstance pour tes fragments onglets aussi
             case 0:
                 TabRepo tabRepo = new TabRepo(this.getUser());
                 return tabRepo;

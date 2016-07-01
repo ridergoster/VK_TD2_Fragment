@@ -26,6 +26,8 @@ public class InputActivity extends AppCompatActivity {
     @BindView(R.id.send_button)
     Button sendButton;
 
+    SharedPreferences sharedPref; //Correction stocker le sharedprefs en field
+
     public void openMainActivity(String username) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(GITHUB_NAME, username);
@@ -37,7 +39,7 @@ public class InputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
         ButterKnife.bind(this);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         String username = sharedPref.getString(GITHUB_NAME, "");
         githubName.setText(username);
         githubName.setSelection(githubName.getText().length());
@@ -51,15 +53,10 @@ public class InputActivity extends AppCompatActivity {
 
     @OnClick(R.id.send_button)
     public void submit() {
-        InputMethodManager inputManager = (InputMethodManager)
-                getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         String username = githubName.getText().toString().isEmpty() ? "ridergoster" : githubName.getText().toString();
-        editor.putString(GITHUB_NAME, username);
-        editor.commit();
+        sharedPref.edit().putString(GITHUB_NAME, username).apply(); //Correction inline & apply
         openMainActivity(username);
     }
 
